@@ -2,6 +2,10 @@ export interface UserEntity {
 	firstName: string;
 	lastName: string;
 	email: string;
+	thumbnailUrl?: string;
+}
+
+export interface ThumbnailEntity {
 	thumbnailUrl: string;
 }
 
