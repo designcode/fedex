@@ -18,6 +18,7 @@ import { passwordStrengthValidator } from '../validators/password-strength.valid
 import { passwordNameMatchValidator } from '../validators/password-name-match.validator';
 import { Status } from '@shared/store';
 import { map } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-fedex-sign-up',
@@ -29,6 +30,7 @@ import { map } from 'rxjs';
 })
 export class SignUpComponent {
 	private readonly destroyRef = inject(DestroyRef);
+	private readonly router = inject(Router);
 	private readonly formBuilder = inject(FormBuilder);
 	private readonly userStore = inject(UserStoreService);
 
@@ -45,7 +47,6 @@ export class SignUpComponent {
 					passwordStrengthValidator(),
 				],
 			],
-			thumbnailUrl: [''],
 		},
 		{
 			validators: passwordNameMatchValidator(),
@@ -61,7 +62,7 @@ export class SignUpComponent {
 		map(state => ({
 			fullName: `${state.user?.firstName ?? ''} ${state.user?.lastName ?? ''}`,
 			isPending: state.status === Status.PENDING,
-			signUpSuccess: state.status === Status.SUCCESS,
+			signupFailed: state.status === Status.ERROR,
 		}))
 	);
 
@@ -84,7 +85,9 @@ export class SignUpComponent {
 		this.userStore
 			.signUp(signUpData)
 			.pipe(takeUntilDestroyed(this.destroyRef))
-			.subscribe(console.log);
+			.subscribe(() => {
+				this.router.navigate(['/']);
+			});
 	}
 
 	hasError(control: FormControl | FormGroup, error: string) {

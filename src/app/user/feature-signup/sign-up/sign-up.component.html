@@ -83,18 +83,22 @@
 			>
 		</fieldset>
 
-		<input
-			type="hidden"
-			formControlName="thumbnailUrl"
-			name="thumbnailUrl"
-			id="thumbnailUrl" />
+		<div class="flex justify-end items-center">
+			@if (vm.signupFailed) {
+				<div class="error mr-2">
+					Error in signing up. Please try again!
+				</div>
+			}
 
-		<div class="flex justify-end">
 			<button
 				type="submit"
 				[disabled]="signUpForm.invalid"
 				class="primary">
-				Register
+				@if (vm.isPending) {
+					Signing Up
+				} @else {
+					Sign Up
+				}
 			</button>
 		</div>
 	</form>
