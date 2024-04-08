@@ -1,0 +1,95 @@
+html,
+body {
+	@apply bg-white;
+}
+
+body {
+	@apply m-5;
+}
+
+* {
+	@apply text-grey;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	@apply font-bold;
+	@apply mb-4;
+}
+
+h1 {
+	@apply text-5xl;
+}
+
+h2 {
+	@apply text-4xl;
+}
+
+h3 {
+	@apply text-3xl;
+}
+
+h4 {
+	@apply text-2xl;
+}
+
+h5 {
+	@apply text-xl;
+}
+
+p {
+	@apply mb-4;
+}
+
+form {
+	label {
+		@apply block;
+		@apply relative;
+		@apply mb-2;
+		@apply font-semibold;
+		@apply text-xs;
+		@apply text-left;
+		@apply no-underline;
+		@apply whitespace-normal;
+		@apply break-normal;
+		@apply cursor-pointer;
+	}
+
+	input,
+	select,
+	textarea {
+		@apply relative;
+		@apply block;
+		@apply w-full;
+		@apply max-h-10;
+		@apply p-2;
+		@apply border;
+		@apply border-grey;
+		@apply rounded;
+		@apply text-grey;
+		@apply font-normal;
+		@apply text-base;
+		@apply text-left;
+		@apply bg-white;
+		@apply outline-none;
+	}
+}
+
+button {
+	@apply py-2;
+	@apply px-3;
+	@apply text-white;
+	@apply rounded;
+	@apply outline-none;
+
+	&.primary {
+		@apply bg-primary;
+	}
+
+	&.secondary {
+		@apply bg-secondary;
+	}
+}
