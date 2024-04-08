@@ -64,7 +64,6 @@ form {
 		@apply relative;
 		@apply block;
 		@apply w-full;
-		@apply max-h-10;
 		@apply p-2;
 		@apply border;
 		@apply border-grey;
@@ -92,4 +91,11 @@ button {
 	&.secondary {
 		@apply bg-secondary;
 	}
+}
+
+section {
+	@apply p-5;
+	@apply mb-5;
+	@apply rounded-md;
+	@apply shadow-md;
 }
