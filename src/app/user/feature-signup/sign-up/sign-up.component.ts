@@ -16,6 +16,8 @@ import {
 import { SignUpRequest, UserStoreService } from '@user/data-access';
 import { passwordStrengthValidator } from '../validators/password-strength.validator';
 import { passwordNameMatchValidator } from '../validators/password-name-match.validator';
+import { Status } from '@shared/store';
+import { map } from 'rxjs';
 
 @Component({
 	selector: 'app-fedex-sign-up',
@@ -55,7 +57,13 @@ export class SignUpComponent {
 	readonly email = this.signUpForm.controls.email;
 	readonly password = this.signUpForm.controls.password;
 
-	readonly vm$ = this.userStore.vm$;
+	readonly vm$ = this.userStore.getState().pipe(
+		map(state => ({
+			fullName: `${state.user?.firstName ?? ''} ${state.user?.lastName ?? ''}`,
+			isPending: state.status === Status.PENDING,
+			signUpSuccess: state.status === Status.SUCCESS,
+		}))
+	);
 
 	constructor() {
 		this.signUpForm.valueChanges
