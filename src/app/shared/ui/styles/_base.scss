@@ -75,6 +75,13 @@ form {
 		@apply bg-white;
 		@apply outline-none;
 	}
+
+	.error {
+		@apply text-warning;
+		@apply text-xs;
+		@apply font-bold;
+		@apply mt-2;
+	}
 }
 
 button {
@@ -102,4 +109,8 @@ section {
 	@apply mb-5;
 	@apply rounded-md;
 	@apply shadow-md;
+}
+
+hr {
+	@apply my-10;
 }
