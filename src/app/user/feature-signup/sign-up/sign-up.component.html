@@ -1,0 +1,112 @@
+<div class="container mx-auto" *ngIf="vm$ | async as vm">
+	<section>
+		<header class="header">
+			<h1>
+				<span class="text-white">FED</span>
+				<span class="text-secondary">EX</span>
+			</h1>
+		</header>
+
+		<h3>
+			Sign Up
+			<small
+				>Name: <span>{{ vm.fullName }}</span></small
+			>
+		</h3>
+
+		<form [formGroup]="signUpForm" (submit)="submitSignUpForm($event)">
+			<fieldset class="mb-4">
+				<label for="firstName">First Name</label>
+
+				<input
+					type="text"
+					formControlName="firstName"
+					name="firstName"
+					id="firstName" />
+
+				<span *ngIf="hasError(firstName, 'required')" class="error"
+					>First name is required</span
+				>
+			</fieldset>
+
+			<fieldset class="mb-4">
+				<label for="lastName">Last Name</label>
+
+				<input
+					type="text"
+					formControlName="lastName"
+					name="lastName"
+					id="lastName" />
+
+				<span *ngIf="hasError(lastName, 'required')" class="error"
+					>Last name is required</span
+				>
+			</fieldset>
+
+			<fieldset class="mb-4">
+				<label for="email">Email Address</label>
+
+				<input
+					type="text"
+					formControlName="email"
+					name="email"
+					id="email" />
+
+				<span *ngIf="hasError(email, 'required')" class="error"
+					>Email is required</span
+				>
+
+				<span *ngIf="hasError(email, 'email')" class="error"
+					>Email is not valid, please use a valid email
+					(user&#64;domain)</span
+				>
+			</fieldset>
+
+			<fieldset class="mb-4">
+				<label for="password">Password</label>
+
+				<input
+					type="password"
+					formControlName="password"
+					name="password"
+					id="password" />
+
+				<span *ngIf="hasError(password, 'required')" class="error block"
+					>Password is required</span
+				>
+
+				<span
+					*ngIf="hasError(password, 'minlength')"
+					class="error block"
+					>Password should be a minimum of eight characters</span
+				>
+
+				<span *ngIf="hasError(password, 'strength')" class="error block"
+					>Password should contain lower and uppercase letters</span
+				>
+
+				<span
+					*ngIf="hasError(signUpForm, 'passwordnamematch')"
+					class="error block"
+					>Password should not contain the user&#39;s first or last
+					name</span
+				>
+			</fieldset>
+
+			<input
+				type="hidden"
+				formControlName="thumbnailUrl"
+				name="thumbnailUrl"
+				id="thumbnailUrl" />
+
+			<div class="flex justify-end">
+				<button
+					type="submit"
+					[disabled]="signUpForm.invalid"
+					class="primary">
+					Register
+				</button>
+			</div>
+		</form>
+	</section>
+</div>

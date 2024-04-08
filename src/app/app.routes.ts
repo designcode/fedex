@@ -8,4 +8,11 @@ export const routes: Routes = [
 				({ DesignSystemComponent }) => DesignSystemComponent
 			),
 	},
+	{
+		path: 'signup',
+		loadComponent: () =>
+			import('@user/feature-signup').then(
+				({ SignUpComponent }) => SignUpComponent
+			),
+	},
 ];
