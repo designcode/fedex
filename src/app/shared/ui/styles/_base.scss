@@ -91,6 +91,10 @@ button {
 	&.secondary {
 		@apply bg-secondary;
 	}
+
+	&:disabled {
+		@apply bg-grey;
+	}
 }
 
 section {
