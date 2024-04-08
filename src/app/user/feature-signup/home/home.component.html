@@ -1,0 +1,18 @@
+@if (vm$ | async; as user) {
+	<div class="flex">
+		<img
+			[src]="user.thumbnailUrl"
+			alt="Profile Picture"
+			class="h-20 max-w-full rounded-full mr-2" />
+
+		<div class="mt-2">
+			<strong class="text-primary">{{ user.firstName }}</strong>
+			<strong class="text-secondary text-xs uppercase block">{{
+				user.email
+			}}</strong>
+		</div>
+	</div>
+} @else {
+	You have not signed up yet. Please proceed to
+	<a class="font-bold" routerLink="/signup">signup here</a>
+}
