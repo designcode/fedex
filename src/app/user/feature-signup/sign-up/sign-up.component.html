@@ -1,20 +1,19 @@
 @if (vm$ | async; as vm) {
-	<h3>
+	<h3 class="title">
 		Sign Up
-		<small
+		<small class="name"
 			>Name: <span>{{ vm.fullName }}</span></small
 		>
 	</h3>
 
-	<form [formGroup]="signUpForm" (submit)="submitSignUpForm($event)">
+	<form
+		[formGroup]="signUpForm"
+		(submit)="submitSignUpForm($event)"
+		name="signUpForm">
 		<fieldset class="mb-4">
 			<label for="firstName">First Name</label>
 
-			<input
-				type="text"
-				formControlName="firstName"
-				name="firstName"
-				id="firstName" />
+			<input type="text" formControlName="firstName" name="firstName" />
 
 			@if (hasError(firstName, 'required')) {
 				<span class="error">First name is required</span>
@@ -24,11 +23,7 @@
 		<fieldset class="mb-4">
 			<label for="lastName">Last Name</label>
 
-			<input
-				type="text"
-				formControlName="lastName"
-				name="lastName"
-				id="lastName" />
+			<input type="text" formControlName="lastName" name="lastName" />
 
 			@if (hasError(lastName, 'required')) {
 				<span class="error">Last name is required</span>
@@ -38,11 +33,7 @@
 		<fieldset class="mb-4">
 			<label for="email">Email Address</label>
 
-			<input
-				type="text"
-				formControlName="email"
-				name="email"
-				id="email" />
+			<input type="text" formControlName="email" name="email" />
 
 			@if (hasError(email, 'required')) {
 				<span class="error">Email is required</span>
@@ -59,11 +50,7 @@
 		<fieldset class="mb-4">
 			<label for="password">Password</label>
 
-			<input
-				type="password"
-				formControlName="password"
-				name="password"
-				id="password" />
+			<input type="password" formControlName="password" name="password" />
 
 			@if (hasError(password, 'required')) {
 				<span class="error block">Password is required</span>
@@ -99,6 +86,7 @@
 			<button
 				type="submit"
 				[disabled]="signUpForm.invalid"
+				id="signUpFormSubmitButton"
 				class="primary">
 				@if (vm.isPending) {
 					Signing Up
