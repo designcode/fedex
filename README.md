@@ -1,6 +1,6 @@
 # Fedex Assignment
 
-This is a signup form implementation using Angular 17 and a custom State management system.
+This is a signup form implementation using Angular 17 and a custom State management system. A live demo can be [viewed here](https://designcode.github.io/fedex/)
 
 ## Getting Started
 
@@ -13,17 +13,17 @@ In order to run project, please run following commands
 
 #### Test the project
 
-- To run unit tests,
+-   To run unit tests,
 
-	`ng test`
+    `ng test`
 
-- To run component tests,
+-   To run component tests,
 
-	`npx cypress open` select **Component Testing**
+    `npx cypress open` select **Component Testing**
 
-- To run E2E tests,
+-   To run E2E tests,
 
-	`npx cypress open` select **E2E Testing**. Please make sure that application is also running before starting E2E tests
+    `npx cypress open` select **E2E Testing**. Please make sure that application is also running before starting E2E tests
 
 ## Architecture
 
