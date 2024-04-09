@@ -11,7 +11,7 @@ export class UserApiService {
 
 	getAvatar(id: number) {
 		return this.http
-			.get<ThumbnailEntity>(`${this.apiHost}/photoss/${id}`)
+			.get<ThumbnailEntity>(`${this.apiHost}/photos/${id}`)
 			.pipe(
 				// Return an empty string if thumbnail API errors
 				catchError(() => of({ thumbnailUrl: '' }))
