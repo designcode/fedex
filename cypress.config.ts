@@ -8,4 +8,8 @@ export default defineConfig({
 		},
 		specPattern: '**/*.cy.ts',
 	},
+
+	e2e: {
+		setupNodeEvents() {},
+	},
 });
