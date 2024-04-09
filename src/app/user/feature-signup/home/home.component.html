@@ -1,5 +1,5 @@
 @if (vm$ | async; as user) {
-	<div class="flex">
+	<div class="flex user-info">
 		@if (user.thumbnailUrl !== '') {
 			<img
 				[src]="user.thumbnailUrl"
@@ -8,13 +8,17 @@
 		}
 
 		<div class="mt-2">
-			<strong class="text-primary">{{ user.firstName }}</strong>
-			<strong class="text-secondary text-xs uppercase block">{{
+			<strong class="first-name text-primary">{{
+				user.firstName
+			}}</strong>
+			<strong class="email text-secondary text-xs uppercase block">{{
 				user.email
 			}}</strong>
 		</div>
 	</div>
 } @else {
-	You have not signed up yet. Please proceed to
-	<a class="font-bold" routerLink="/signup">signup here</a>
+	<div class="signup-message">
+		You have not signed up yet. Please proceed to
+		<a class="font-bold" routerLink="/signup">signup here</a>
+	</div>
 }
