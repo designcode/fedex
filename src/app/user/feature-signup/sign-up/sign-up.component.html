@@ -1,4 +1,4 @@
-<ng-container *ngIf="vm$ | async as vm">
+@if (vm$ | async; as vm) {
 	<h3>
 		Sign Up
 		<small
@@ -16,9 +16,9 @@
 				name="firstName"
 				id="firstName" />
 
-			<span *ngIf="hasError(firstName, 'required')" class="error"
-				>First name is required</span
-			>
+			@if (hasError(firstName, 'required')) {
+				<span class="error">First name is required</span>
+			}
 		</fieldset>
 
 		<fieldset class="mb-4">
@@ -30,9 +30,9 @@
 				name="lastName"
 				id="lastName" />
 
-			<span *ngIf="hasError(lastName, 'required')" class="error"
-				>Last name is required</span
-			>
+			@if (hasError(lastName, 'required')) {
+				<span class="error">Last name is required</span>
+			}
 		</fieldset>
 
 		<fieldset class="mb-4">
@@ -44,14 +44,16 @@
 				name="email"
 				id="email" />
 
-			<span *ngIf="hasError(email, 'required')" class="error"
-				>Email is required</span
-			>
+			@if (hasError(email, 'required')) {
+				<span class="error">Email is required</span>
+			}
 
-			<span *ngIf="hasError(email, 'email')" class="error"
-				>Email is not valid, please use a valid email
-				(user&#64;domain)</span
-			>
+			@if (hasError(email, 'email')) {
+				<span class="error"
+					>Email is not valid, please use a valid email
+					(user&#64;domain)</span
+				>
+			}
 		</fieldset>
 
 		<fieldset class="mb-4">
@@ -63,24 +65,28 @@
 				name="password"
 				id="password" />
 
-			<span *ngIf="hasError(password, 'required')" class="error block"
-				>Password is required</span
-			>
+			@if (hasError(password, 'required')) {
+				<span class="error block">Password is required</span>
+			}
 
-			<span *ngIf="hasError(password, 'minlength')" class="error block"
-				>Password should be a minimum of eight characters</span
-			>
+			@if (hasError(password, 'minlength')) {
+				<span class="error block"
+					>Password should be a minimum of eight characters</span
+				>
+			}
 
-			<span *ngIf="hasError(password, 'strength')" class="error block"
-				>Password should contain lower and uppercase letters</span
-			>
+			@if (hasError(password, 'strength')) {
+				<span class="error block"
+					>Password should contain lower and uppercase letters</span
+				>
+			}
 
-			<span
-				*ngIf="hasError(signUpForm, 'passwordnamematch')"
-				class="error block"
-				>Password should not contain the user&#39;s first or last
-				name</span
-			>
+			@if (hasError(signUpForm, 'passwordnamematch')) {
+				<span class="error block"
+					>Password should not contain the user&#39;s first or last
+					name</span
+				>
+			}
 		</fieldset>
 
 		<div class="flex justify-end items-center">
@@ -102,4 +108,4 @@
 			</button>
 		</div>
 	</form>
-</ng-container>
+}

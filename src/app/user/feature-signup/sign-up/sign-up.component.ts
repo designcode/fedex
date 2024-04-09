@@ -1,4 +1,4 @@
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import {
 	ChangeDetectionStrategy,
@@ -26,7 +26,7 @@ import { Router } from '@angular/router';
 	templateUrl: './sign-up.component.html',
 	styleUrl: './sign-up.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
-	imports: [AsyncPipe, NgIf, ReactiveFormsModule],
+	imports: [AsyncPipe, ReactiveFormsModule],
 })
 export class SignUpComponent {
 	private readonly destroyRef = inject(DestroyRef);
