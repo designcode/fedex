@@ -49,11 +49,21 @@ describe(passwordNameMatchValidator.name, () => {
 		expect(validatorFn(control)).toEqual({ passwordnamematch: true });
 	});
 
-	it('returns null only if password contain both uppercase and lowercase', () => {
+	it('returns null first or last name are empty', () => {
+		const control = new FormGroup({
+			firstName: new FormControl(''),
+			lastName: new FormControl(''),
+			password: new FormControl('Password'),
+		});
+
+		expect(validatorFn(control)).toBeNull();
+	});
+
+	it('returns null only if password does not match first and last name', () => {
 		const control = new FormGroup({
 			firstName: new FormControl('firstName'),
 			lastName: new FormControl('lastName'),
-			password: new FormControl('password'),
+			password: new FormControl('Password'),
 		});
 
 		expect(validatorFn(control)).toBeNull();

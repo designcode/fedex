@@ -4,7 +4,7 @@ export function passwordNameMatchValidator(): ValidatorFn {
 	return (control: AbstractControl): ValidationErrors | null => {
 		const { firstName, lastName, password } = control.value;
 
-		if (!password) {
+		if (!password || (!firstName && !lastName)) {
 			return null;
 		}
 
